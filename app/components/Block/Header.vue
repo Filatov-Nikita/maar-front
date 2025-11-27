@@ -5,9 +5,15 @@
         <NuxtLink class="logo-link" :to="{ name: 'index' }">
           <img class="w-full" width="58" height="13" src="~/assets/images/logo.svg" alt="логотип МААР" />
         </NuxtLink>
-        <button class="menu-btn" type="button">
-          <span class="menu-btn__icon">
-            <BaseIcon name="burger" fit />
+        <button class="menu-btn" type="button" @click="toggle">
+          <span
+            class="menu-btn__icon"
+            :class="{
+              'menu-btn__icon--showed': showedMenu,
+              'menu-btn__icon--closed': !showedMenu,
+            }"
+          >
+            <BaseIcon :name="showedMenu ? 'close' : 'burger'" fit />
           </span>
           <span>Меню</span>
         </button>
@@ -17,7 +23,17 @@
 </template>
 
 <script setup lang="ts">
+  const props = defineProps<{
+    showedMenu: boolean,
+  }>();
 
+  const emit = defineEmits<{
+    (event: 'update:showed', value: boolean): void,
+  }>();
+
+  function toggle() {
+    emit('update:showed', !props.showedMenu);
+  }
 </script>
 
 <style scoped lang="scss">
@@ -27,6 +43,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    background: var(--color-app-bg);
   }
 
   .logo-link {
@@ -52,9 +69,17 @@
     }
 
     &__icon {
-      width: 11px;
-      height: 5px;
       color: var(--color-black);
+
+      &--closed {
+        width: 11px;
+        height: 5px;
+      }
+
+      &--showed {
+        width: 9px;
+        height: 9px;
+      }
     }
   }
 </style>
