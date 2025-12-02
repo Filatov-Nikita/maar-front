@@ -1,8 +1,14 @@
 <template>
-  <section class="dir-text">
+  <section ref="targetRef" class="dir-text">
     <div class="grid">
       <div class="left">
-        <div class="photo-wrap">
+        <div
+          class="photo-wrap"
+          :class="{
+            'op-0': !isIntersect,
+            'animate__animated animate__fadeIn': isIntersect,
+          }"
+        >
           <BaseImageResp
             class="w-full"
             width="740"
@@ -20,7 +26,13 @@
         </div>
       </div>
       <div class="right">
-        <BasePersonaText class="pers-text">
+        <BasePersonaText
+          class="pers-text"
+          :class="{
+            'op-0': !isIntersect,
+            'anim-delay-1s animate__animated animate__fadeIn': isIntersect,
+          }"
+        >
           <p>
             Воплощая в реальность самые смелые идеи и желания, мы органично соединяем технологические инженерные новшества, трендовые направления и материалы.
           </p>
@@ -40,6 +52,8 @@
   import PhotoDir from '@/assets/images/personas/dir.jpg';
   import ImageExample from '@/assets/images/home/example.jpg';
   import ImageExampleXl from '@/assets/images/home/example-xl.jpg';
+
+  const { targetRef, isIntersect } = useIntersect({ threshold: [ 0.3, 0.7 ], once: true });
 </script>
 
 <style scoped lang="scss">

@@ -1,6 +1,12 @@
 <template>
-  <section>
-    <div class="photo-wrap">
+  <section ref="targetRef">
+    <div
+      class="photo-wrap"
+      :class="{
+        'op-0': !isIntersect,
+        'animate__animated animate__fadeIn': isIntersect,
+      }"
+    >
       <BaseImageResp
         class="w-full"
         width="738"
@@ -16,8 +22,14 @@
         }"
       />
     </div>
-    <BasePersonaText class="pers-text">
-      <p>
+    <BasePersonaText
+      class="pers-text"
+      :class="{
+        'op-0': !isTextIntersect,
+        'animate__animated animate__fadeIn': isTextIntersect,
+      }"
+    >
+      <p ref="textRef">
         Maar Development — это лучший сервис, высокое качество строительства и&nbsp;превосходные локации.
       </p>
     </BasePersonaText>
@@ -34,6 +46,9 @@
   import PhotoCommerc from '@/assets/images/personas/commerc.jpg';
   import ImageExample from '@/assets/images/home/example2.jpg';
   import ImageExampleXl from '@/assets/images/home/example2-xl.jpg';
+
+  const { targetRef, isIntersect } = useIntersect({ rootMargin: '0px', once: true });
+  const { targetRef: textRef, isIntersect: isTextIntersect } = useIntersect({ threshold: 0.5, once: true });
 </script>
 
 <style scoped lang="scss">

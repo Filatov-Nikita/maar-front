@@ -1,13 +1,25 @@
 <template>
-  <section>
+  <section ref="targetRef">
     <BaseHeaderSec class="title" design="secondary" :size="grid.lg ? 'lg' : 'sm'">
       Философия
     </BaseHeaderSec>
     <div class="text-body">
-      <p class="text1">
+      <p
+        class="text1"
+        :class="{
+          'op-0': !isIntersect,
+          'animate__animated animate__fadeIn': isIntersect,
+        }"
+      >
         Мы создаём уникальные пространства для&nbsp;жизни, где в&nbsp;центре — человек, его&nbsp;состояние и&nbsp;ощущение. Мы&nbsp;вкладываем душу в&nbsp;каждый элемент и&nbsp;продумываем всё до&nbsp;мелочей
       </p>
-      <p class="text2">
+      <p
+        class="text2"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-1s animate__animated animate__fadeIn': isIntersect,
+        }"
+      >
         Нам важно, как&nbsp;человек будет чувствовать себя в&nbsp;построенном нами доме. Наши продукты отличаются максимальной комплектацией и&nbsp;зачастую превосходят продукты конкурентов.
       </p>
     </div>
@@ -16,6 +28,7 @@
 
 <script setup lang="ts">
   const grid = useAppGrid();
+  const { targetRef, isIntersect } = useIntersect({ threshold: [ 0.6, 0.9 ], once: true });
 </script>
 
 <style scoped lang="scss">

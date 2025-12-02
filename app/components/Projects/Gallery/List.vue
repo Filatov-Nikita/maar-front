@@ -1,6 +1,10 @@
 <template>
-  <div class="items">
+  <div class="items" ref="targetRef">
     <Swiper
+      :class="{
+        'op-0': !isIntersect,
+        'animate__animated animate__fadeInUp': isIntersect,
+      }"
       :spaceBetween="16"
       :slidesPerView="1.15"
       :slidesPerGroup="1"
@@ -29,6 +33,8 @@
 <script setup lang="ts">
   import Image from '@/assets/images/temp/proj-gal.jpg';
   import { Swiper, SwiperSlide } from 'swiper/vue';
+
+  const { targetRef, isIntersect } = useIntersect({ threshold: [ 0.3, 0.7 ], once: true });
 </script>
 
 <style scoped lang="scss">

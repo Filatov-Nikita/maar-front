@@ -1,19 +1,43 @@
 <template>
-  <section class="advantages">
+  <section class="advantages" ref="targetRef">
     <div class="items">
-      <article class="item">
+      <article
+        class="item"
+        :class="{
+          'op-0': !isIntersect,
+          'animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <p class="title">25 <span class="title-sm">лет</span></p>
         <p class="text">в строительстве<br>частных домов </p>
       </article>
-      <article class="item">
+      <article
+        class="item"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-1s animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <p class="title"><span class="title-sm">топ</span> 100</p>
         <p class="text">арт-директор входит<br>в&nbsp;число лучших в&nbsp;РФ</p>
       </article>
-      <article class="item">
+      <article
+        class="item"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-2s animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <p class="title">>30</p>
         <p class="text">наград и&nbsp;публикаций в&nbsp;топовых профильных изданиях</p>
       </article>
-      <article class="item">
+      <article
+        class="item"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-3s animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <p class="title">12</p>
         <p class="text">сильнейших дизайнеров и&nbsp;архитекторов</p>
       </article>
@@ -22,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-
+  const { targetRef, isIntersect } = useIntersect({ threshold: 0, once: true });
 </script>
 
 <style scoped lang="scss">

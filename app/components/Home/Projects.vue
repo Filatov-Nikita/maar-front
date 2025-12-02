@@ -1,6 +1,12 @@
 <template>
-  <section>
-    <div class="grid">
+  <section ref="targetRef">
+    <div
+      class="grid"
+      :class="{
+        'op-0': !isIntersect,
+        'animate__animated animate__fadeIn': isIntersect,
+      }"
+    >
       <div class="link-item">
         <ProjectsListItem />
       </div>
@@ -15,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-
+  const { targetRef, isIntersect } = useIntersect({ threshold: 0.2, once: true });
 </script>
 
 <style scoped lang="scss">

@@ -1,10 +1,22 @@
 <template>
-  <section>
+  <section ref="targetRef">
     <BaseHeaderSec class="title" :size="grid.lg ? 'lg' : 'md'">
       Команда и экспертиза
     </BaseHeaderSec>
-    <TeamList />
-    <div class="text-body">
+    <TeamList
+      :class="{
+        'op-0': !isIntersect,
+        'animate__animated animate__fadeInRight': isIntersect,
+      }"
+    />
+    <div
+      ref="targetRef2"
+      class="text-body"
+      :class="{
+        'op-0': !isIntersect2,
+        'animate__animated animate__fadeIn': isIntersect2,
+      }"
+    >
       <p class="text1">
         Высокая квалификация компетенции специалистов позволяют работать с&nbsp;любыми материалами и&nbsp;технологиями.
       </p>
@@ -17,6 +29,8 @@
 
 <script setup lang="ts">
   const grid = useAppGrid();
+  const { targetRef, isIntersect } = useIntersect({ rootMargin: '-100px', once: true });
+  const { targetRef: targetRef2, isIntersect: isIntersect2  } = useIntersect({ threshold: 0.5, once: true });
 </script>
 
 <style scoped lang="scss">

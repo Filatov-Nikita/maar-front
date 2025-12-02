@@ -1,10 +1,16 @@
 <template>
-  <section>
+  <section ref="targetRef">
     <BaseHeaderSec class="title" :size="grid.lg ? 'lg' : 'sm'" design="secondary">
       Услуги
     </BaseHeaderSec>
     <div class="items">
-      <div class="item-wrap">
+      <div
+        class="item-wrap"
+        :class="{
+          'op-0': !isIntersect,
+          'animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <ServicesListItem
           class="list-item"
           name="Выбрать<br>строящийся дом"
@@ -12,7 +18,13 @@
           href="#"
         />
       </div>
-      <div class="item-wrap">
+      <div
+        class="item-wrap"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-1s animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <ServicesListItem
           class="list-item"
           name="Заказать подрядное<br>строительство"
@@ -20,7 +32,13 @@
           href="#"
         />
       </div>
-      <div class="item-wrap">
+      <div
+        class="item-wrap"
+        :class="{
+          'op-0': !isIntersect,
+          'anim-delay-2s animate__animated animate__fadeInLeft': isIntersect,
+        }"
+      >
         <ServicesListItem
           class="list-item"
           name="Заказать дизайн<br>интерьера"
@@ -34,6 +52,8 @@
 
 <script setup lang="ts">
   const grid = useAppGrid();
+
+  const { targetRef, isIntersect } = useIntersect({ threshold: 0.2, once: true });
 </script>
 
 <style scoped lang="scss">
