@@ -31,19 +31,36 @@
   }
 
   .items {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -8px;
+    @include gap(0px, 0px);
+    @include row();
   }
 
   .item {
-    padding: 8px;
-    width: 50%;
-    border-top: 1px solid var(--color-black-1-2);
+    @include col();
+    @include size(50%);
+    @include size-xl(25%);
+    border: 0px solid var(--color-black-1-2);
+    border-top-width: 1px;
 
+    @include xl {
+      padding: 15px 20px;
+      border-left-width: 1px;
+    }
+
+    &:first-child {
+      @include xl {
+        border-left-width: 0px;
+      }
+    }
 
     &:nth-child(2n) {
       text-align: right;
+      padding-left: 8px;
+
+      @include xl {
+        text-align: left;
+        padding-left: 20px;
+      }
     }
   }
 
@@ -64,5 +81,9 @@
     line-height: 1.2;
     letter-spacing: -0.03em;
     padding-bottom: 62px;
+
+    @include xl {
+      padding-bottom: 16px;
+    }
   }
 </style>
