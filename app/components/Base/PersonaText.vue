@@ -16,12 +16,7 @@
 </script>
 
 <style scoped lang="scss">
-  .text {
-    --offset: 75px;
-    font-size: 19px;
-    line-height: 1.2;
-    letter-spacing: -0.04em;
-  }
+  .text {}
 
   .text-wrap {
     text-indent: var(--offset);

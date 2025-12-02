@@ -32,6 +32,11 @@
   .photo {
     width: 59px;
     height: 59px;
+
+    @include lg {
+      width: 70px;
+      height: 70px;
+    }
   }
 
   .text-body {

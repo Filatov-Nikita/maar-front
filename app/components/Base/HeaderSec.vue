@@ -12,7 +12,7 @@
   withDefaults(
     defineProps<{
       tag?: string,
-      size?: 'sm' | 'md',
+      size?: 'sm' | 'md' | 'lg' | 'xl',
       design?: 'primary' | 'secondary',
     }>(),
     {
@@ -34,6 +34,14 @@
 
     &--md {
       font-size: 21px;
+    }
+
+    &--lg {
+      font-size: 27px;
+    }
+
+    &--xl {
+      font-size: 36px;
     }
 
     &--secondary {

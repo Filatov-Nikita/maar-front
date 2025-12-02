@@ -13,7 +13,7 @@
   withDefaults(
     defineProps<{
       tag?: string,
-      size?: 'sm' | 'md',
+      size?: 'sm' | 'md' | 'lg',
     }>(),
     {
       tag: 'a',
@@ -26,20 +26,28 @@
   .link-primary {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     border-bottom: 1px solid var(--color-black-1-2);
     line-height: 1;
 
     &--sm {
+      gap: 8px;
       font-size: 17px;
       letter-spacing: -0.01em;
       padding-bottom: 4px;
     }
 
     &--md {
+      gap: 8px;
       font-size: 27px;
       letter-spacing: -0.04em;
       padding-bottom: 6px;
+    }
+
+    &--lg {
+      gap: 10px;
+      font-size: 36px;
+      letter-spacing: -0.04em;
+      padding-bottom: 8px;
     }
 
     &:hover {
@@ -56,6 +64,11 @@
     &--md {
       width: 18px;
       height: 14px;
+    }
+
+    &--lg {
+      width: 23px;
+      height: 18px;
     }
   }
 </style>

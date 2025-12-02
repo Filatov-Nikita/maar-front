@@ -30,6 +30,10 @@
     font-size: 21px;
     font-weight: 400;
 
+    @include lg {
+      font-size: 25px;
+    }
+
     &:hover {
       opacity: 0.7;
     }
