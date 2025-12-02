@@ -32,26 +32,50 @@
 
     &-dir {
       margin-bottom: 115px;
+
+      @include xl {
+        margin-bottom: 200px;
+      }
     }
 
     &-gallery {
       margin-bottom: 125px;
+
+      @include xl {
+        margin-bottom: 140px;
+      }
     }
 
     &-philosophy {
       margin-bottom: 138px;
+
+      @include xl {
+        margin-bottom: 220px;
+      }
     }
 
     &-advantages {
       margin-bottom: 20px;
+
+      @include lg {
+        margin-bottom: 96px;
+      }
     }
 
     &-commerc {
       margin-bottom: 115px;
+
+      @include xl {
+        margin-bottom: 180px;
+      }
     }
 
     &-team {
       margin-bottom: 111px;
+
+      @include xl {
+        margin-bottom: 200px;
+      }
     }
   }
 </style>
