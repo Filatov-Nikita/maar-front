@@ -135,6 +135,12 @@
   }
 
   .nav {
+    @include lg {
+      max-width: 50%;
+      margin-left: auto;
+    }
+
+
     &__link-wrap {
       & + & {
         margin-top: 22px;
@@ -145,6 +151,14 @@
       font-size: 25px;
       line-height: 1;
       letter-spacing: -0.04em;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      @include xl {
+        font-size: 35px;
+      }
     }
   }
 </style>

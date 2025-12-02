@@ -3,72 +3,82 @@
     <div class="wrapper">
       <div class="main">
         <div class="contacts">
-          <BaseHeaderSec tag="p" design="secondary" size="md">Контакты</BaseHeaderSec>
+          <BaseHeaderSec tag="p" design="secondary" :size="grid.lg ? 'lg' : 'md'">
+            Контакты
+          </BaseHeaderSec>
           <div class="contacts__items">
             <div class="contacts__link">
-              <BaseLinkPrimary size="md" href="/">telegram</BaseLinkPrimary>
+              <BaseLinkPrimary :size="grid.xl ? 'lg' : 'md'" href="/">telegram</BaseLinkPrimary>
             </div>
             <div class="contacts__link">
-              <BaseLinkPrimary size="md" href="/">whatsapp</BaseLinkPrimary>
+              <BaseLinkPrimary :size="grid.xl ? 'lg' : 'md'" href="/">whatsapp</BaseLinkPrimary>
             </div>
             <div class="contacts__link">
-              <BaseLinkPrimary size="md" href="/">обратный звонок</BaseLinkPrimary>
+              <BaseLinkPrimary :size="grid.xl ? 'lg' : 'md'" href="/">обратный звонок</BaseLinkPrimary>
             </div>
           </div>
         </div>
         <div class="menu">
-          <BaseHeaderSec tag="p" design="secondary" size="md">Меню</BaseHeaderSec>
+          <BaseHeaderSec tag="p" design="secondary" :size="grid.lg ? 'lg' : 'md'">
+            Меню
+          </BaseHeaderSec>
           <div class="menu__items">
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Компания</NuxtLink>
+            <div class="menu__col1">
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Компания</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Объекты</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Дизайн-проекты</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Клиентский сервис</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Журнал</NuxtLink>
+              </div>
             </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Объекты</NuxtLink>
+            <div class="menu__col2">
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Строительство</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Дизайн интерьера</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Участки</NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">Контакты</NuxtLink>
+              </div>
             </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Дизайн-проекты</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Клиентский сервис</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Журнал</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Строительство</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Дизайн интерьера</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Участки</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">Контакты</NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">
-                <span>Вакансии</span>
-                <span class="menu-link__icon">
-                  <BaseIcon name="external" fit />
-                </span>
-              </NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">
-                <span>Instagram</span>
-                <span class="menu-link__icon">
-                  <BaseIcon name="external" fit />
-                </span>
-              </NuxtLink>
-            </div>
-            <div class="menu__link-wrap">
-              <NuxtLink class="menu-link" to="/">
-                <span>Telegram</span>
-                <span class="menu-link__icon">
-                  <BaseIcon name="external" fit />
-                </span>
-              </NuxtLink>
+            <div class="menu__col3">
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">
+                  <span>Вакансии</span>
+                  <span class="menu-link__icon">
+                    <BaseIcon name="external" fit />
+                  </span>
+                </NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">
+                  <span>Instagram</span>
+                  <span class="menu-link__icon">
+                    <BaseIcon name="external" fit />
+                  </span>
+                </NuxtLink>
+              </div>
+              <div class="menu__link-wrap">
+                <NuxtLink class="menu-link" to="/">
+                  <span>Telegram</span>
+                  <span class="menu-link__icon">
+                    <BaseIcon name="external" fit />
+                  </span>
+                </NuxtLink>
+              </div>
             </div>
           </div>
         </div>
@@ -81,13 +91,19 @@
 </template>
 
 <script setup lang="ts">
-import BaseIcon from '../Base/BaseIcon.vue';
-
   const { currentYear } = useNuxtApp().$dates;
+  const grid = useAppGrid();
 </script>
 
 <style scoped lang="scss">
-  .main {}
+  .main {
+    @include row();
+    @include gap(0px, 0px);
+
+    @include lg {
+      flex-direction: row-reverse;
+    }
+  }
 
   .finish {
     border-top: 1px solid var(--color-dark-1-2);
@@ -107,10 +123,16 @@ import BaseIcon from '../Base/BaseIcon.vue';
   }
 
   .contacts {
-    width: 100%;
+    @include col();
+    @include size(100%);
+    @include size-lg(30%);
 
     &__items {
       margin-top: 50px;
+
+      @include lg {
+        margin-top: 65px;
+      }
     }
 
     &__link {
@@ -121,21 +143,42 @@ import BaseIcon from '../Base/BaseIcon.vue';
   }
 
   .menu {
-    width: 100%;
+    @include col();
+    @include size(100%);
+    @include size-lg(70%);
 
-    &__link-wrap {
-      & + & {
-        margin-top: 20px;
-      }
+    @include lg {
+      padding-right: 30px;
     }
 
     &__items {
       margin-top: 45px;
+      flex-direction: column;
+
+      @include lg {
+        flex-direction: row;
+        column-gap: 30px;
+        margin-top: 75px;
+      }
+    }
+
+    &__col1, &__col2, &__col3, &__items {
+      display: flex;
+      flex-wrap: wrap;
+      row-gap: 20px;
+    }
+
+    &__col1, &__col2, &__col3 {
+      flex-direction: column;
+
+      @include lg {
+        flex-grow: 1;
+      }
     }
   }
 
   .menu-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 8px;
     font-size: 17px;
