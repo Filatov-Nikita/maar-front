@@ -15,5 +15,14 @@ export default defineNuxtConfig({
         customDomId: '__svg__icons__dom__',
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/scss/mixins/screens.scss" as *;'
+        }
+      }
+    },
   },
+
+  modules: ['@nuxtjs/device'],
 })

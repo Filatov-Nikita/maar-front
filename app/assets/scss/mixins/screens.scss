@@ -1,0 +1,85 @@
+$xl: 1200px;
+$lg: 1000px;
+$md: 700px;
+
+@mixin screen($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @include screen($xl) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @include screen($lg) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @include screen($md) {
+    @content;
+  }
+}
+
+@mixin gap($x: 0, $y: 0) {
+  --col-x: #{$x};
+  --col-y: #{$y};
+}
+
+@mixin gap-md($x: 0, $y: 0) {
+  @include md {
+    @include gap($x, $y);
+  }
+}
+
+@mixin gap-lg($x: 0, $y: 0) {
+  @include lg {
+    @include gap($x, $y);
+  }
+}
+
+@mixin gap-xl($x: 0, $y: 0) {
+  @include xl {
+    @include gap($x, $y);
+  }
+}
+
+@mixin size($n) {
+  --col-size: #{$n};
+}
+
+@mixin size-md($n) {
+  @include md {
+    @include size($n);
+  }
+}
+
+@mixin size-lg($n) {
+  @include lg {
+    @include size($n);
+  }
+}
+
+@mixin size-xl($n) {
+  @include xl {
+    @include size($n);
+  }
+}
+
+@mixin row() {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--col-x) * -1);
+  margin-top: calc(var(--col-y) * -1);
+}
+
+@mixin col() {
+  margin-left: var(--col-x);
+  margin-top: var(--col-y);
+  width: calc(var(--col-size) - var(--col-x));
+}
