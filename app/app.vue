@@ -8,6 +8,7 @@
 
 <script setup lang="ts">
   import 'swiper/css';
+  import 'animate.css';
 </script>
 
 <style lang="scss">
