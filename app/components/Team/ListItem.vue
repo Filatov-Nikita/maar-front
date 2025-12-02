@@ -20,12 +20,20 @@
   .item {
     border-bottom: 1px solid var(--color-black-1-2);
     padding-bottom: 10px;
+
+    @include lg {
+      border-bottom-width: 0px;
+    }
   }
 
   .name, .position {
     font-size: 16px;
     line-height: 1.4;
     letter-spacing: -0.02em;
+
+    @include xl {
+      font-size: 19px;
+    }
   }
 
   .name {
