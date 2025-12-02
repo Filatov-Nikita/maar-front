@@ -33,11 +33,17 @@
     border-bottom-width: 1px;
     overflow: hidden;
 
+    @include xl {
+      min-height: 300px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+
     &:hover {
       opacity: 0.7;
 
       .icon {
-        transform: translateX(50px);
+        transform: translateX(var(--hoverOffset));
       }
     }
   }
@@ -46,12 +52,24 @@
     font-size: 25px;
     line-height: 1;
     letter-spacing: -0.04em;
+
+    @include xl {
+      font-size: 30px;
+    }
   }
 
   .icon {
-    transition: transform 500ms;
+    --hoverOffset: 50px;
+    --duration: 500ms;
+    transition: transform var(--duration);
     width: 15px;
     height: 12px;
+
+    @include xl {
+      --hoverOffset: -50px;
+      width: 20px;
+      height: 17px;
+    }
   }
 
   .link-wrap {
@@ -61,9 +79,17 @@
     font-size: 15px;
     line-height: 1.2;
     letter-spacing: -0.03em;
+
+    @include xl {
+      flex-wrap: wrap;
+    }
   }
 
   .link-text {
     flex-grow: 1;
+
+    @include xl {
+      width: 100%;
+    }
   }
 </style>
