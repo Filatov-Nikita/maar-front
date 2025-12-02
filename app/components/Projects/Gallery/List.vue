@@ -1,6 +1,15 @@
 <template>
   <div class="items">
-    <Swiper :spaceBetween="16" :slidesPerView="1.15" :slidesPerGroup="1">
+    <Swiper
+      :spaceBetween="16"
+      :slidesPerView="1.15"
+      :slidesPerGroup="1"
+      :breakpoints="{
+        [$thresholds.xl]: {
+          slidesPerView: 3,
+        }
+      }"
+    >
       <SwiperSlide>
         <ProjectsGalleryItem class="list-item" name="Майами" period="Июн. 2026" :photoUrl="Image" />
       </SwiperSlide>
@@ -30,5 +39,9 @@
 
   .btn-wrap {
     margin-top: 22px;
+
+    @include xl {
+      margin-top: 140px;
+    }
   }
 </style>
