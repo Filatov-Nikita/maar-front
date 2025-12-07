@@ -51,7 +51,7 @@
                 <NuxtLink class="menu-link" to="/">Участки</NuxtLink>
               </div>
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">Контакты</NuxtLink>
+                <NuxtLink class="menu-link" :to="{ name: 'contacts' }">Контакты</NuxtLink>
               </div>
             </div>
             <div class="menu__col3">
