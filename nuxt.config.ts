@@ -5,7 +5,13 @@ import path from 'path';
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-
+  runtimeConfig: {
+    public: {
+      yandexMaps: {
+        apikey: ''
+      }
+    }
+  },
   vite: {
     plugins: [
       createSvgIconsPlugin({
@@ -23,8 +29,12 @@ export default defineNuxtConfig({
       }
     },
   },
+  yandexMaps: {
+    apikey: ''
+  },
   modules: [
     '@nuxtjs/device',
     '@pinia/nuxt',
+    'vue-yandex-maps/nuxt',
   ],
 });
