@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <div class="wrapper">
       <HomeMain />
       <HomeProjects class="sec-projects"  />
@@ -11,7 +11,7 @@
       <HomeCommercText class="sec-commerc" />
       <HomeTeam class="sec-team" />
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
