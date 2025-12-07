@@ -23,6 +23,8 @@ export default defineNuxtConfig({
       }
     },
   },
-
-  modules: ['@nuxtjs/device'],
-})
+  modules: [
+    '@nuxtjs/device',
+    '@pinia/nuxt',
+  ],
+});
