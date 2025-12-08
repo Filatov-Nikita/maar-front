@@ -87,7 +87,7 @@
   }
 
   .h-col, .phone-col {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--color-black-1-2);
 
     @include lg {
       border-bottom-width: 0;
@@ -125,7 +125,7 @@
 
     @include lg {
       padding-bottom: 16px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--color-black-1-2);
     }
   }
 
