@@ -4,7 +4,7 @@
       <div v-if="showed" class="menu">
         <BlockHeader class="menu-header" :showedMenu="showed" @update:showed="updateShowed" />
         <div class="menu-body">
-          <nav class="nav">
+          <nav class="nav" @click="onClick">
             <div class="nav__link-wrap">
               <NuxtLink class="nav__link" to="/">
                 Главная
@@ -80,6 +80,13 @@
 
   function updateShowed(value: boolean) {
     emit('update:showed', value);
+  }
+
+  function onClick(e: Event) {
+    const target = e.target as HTMLElement;
+    if(target.classList.contains('nav__link')) {
+      updateShowed(false);
+    }
   }
 </script>
 
