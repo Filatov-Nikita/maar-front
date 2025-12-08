@@ -15,7 +15,11 @@ export const useBreadcrumbsStore = defineStore('breadcrumbsStore', () => {
     'contacts': {
       name: 'Контакты',
       to: { name: 'contacts' },
-    }
+    },
+    'articles': {
+      name: 'Журнал',
+      to: { name: 'articles' },
+    },
   } as const satisfies Record<string, PathItem>;
 
   const items = ref<PathItem[]>([]);

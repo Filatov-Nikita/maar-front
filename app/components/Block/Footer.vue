@@ -37,7 +37,7 @@
                 <NuxtLink class="menu-link" to="/">Клиентский сервис</NuxtLink>
               </div>
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">Журнал</NuxtLink>
+                <NuxtLink class="menu-link" :to="{ name: 'articles' }">Журнал</NuxtLink>
               </div>
             </div>
             <div class="menu__col2">
