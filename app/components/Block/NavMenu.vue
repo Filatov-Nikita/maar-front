@@ -16,7 +16,7 @@
               </NuxtLink>
             </div>
             <div class="nav__link-wrap">
-              <NuxtLink class="nav__link" to="/">
+              <NuxtLink class="nav__link" :to="{ name: 'houses' }">
                 Объекты
               </NuxtLink>
             </div>
