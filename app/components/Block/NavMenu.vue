@@ -11,7 +11,7 @@
               </NuxtLink>
             </div>
             <div class="nav__link-wrap">
-              <NuxtLink class="nav__link" to="/">
+              <NuxtLink class="nav__link" :to="{ name: 'about' }">
                 Компания
               </NuxtLink>
             </div>

@@ -25,7 +25,7 @@
           <div class="menu__items">
             <div class="menu__col1">
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">Компания</NuxtLink>
+                <NuxtLink class="menu-link" :to="{ name: 'about' }">Компания</NuxtLink>
               </div>
               <div class="menu__link-wrap">
                 <NuxtLink class="menu-link" :to="{ name: 'houses' }">Объекты</NuxtLink>
