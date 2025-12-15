@@ -21,8 +21,8 @@
               </NuxtLink>
             </div>
             <div class="nav__link-wrap">
-              <NuxtLink class="nav__link" to="/">
-                Дизайн-проекты
+              <NuxtLink class="nav__link" :to="{ name: 'architecture' }">
+                Архитектурное бюро
               </NuxtLink>
             </div>
             <div class="nav__link-wrap">

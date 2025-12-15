@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-
+  useBreadcrumbsStore().setPathsNames('index', 'about');
 </script>
 
 <style scoped lang="scss">
