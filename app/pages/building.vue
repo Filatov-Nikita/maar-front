@@ -21,6 +21,7 @@
       <BuildingServices class="building__services" />
       <BuildingAbout class="building__about" />
       <BuildingProcess class="building__process" />
+      <BuildingControl class="building__control" />
     </div>
   </main>
 </template>
