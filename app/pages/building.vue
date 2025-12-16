@@ -19,6 +19,7 @@
         />
       </div>
       <BuildingServices class="building__services" />
+      <BuildingAbout class="building__about" />
     </div>
   </main>
 </template>
@@ -54,6 +55,14 @@
 
       @include lg {
         margin-bottom: 200px;
+      }
+    }
+
+    &__about {
+      margin-bottom: 100px;
+
+      @include lg {
+        margin-bottom: 150px;
       }
     }
   }
