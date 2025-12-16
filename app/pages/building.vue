@@ -18,6 +18,7 @@
           alt="Процесс стройки"
         />
       </div>
+      <BuildingServices class="building__services" />
     </div>
   </main>
 </template>
@@ -44,6 +45,16 @@
 
     @include lg {
       margin-bottom: 152px;
+    }
+  }
+
+  .building {
+    &__services {
+      margin-bottom: 80px;
+
+      @include lg {
+        margin-bottom: 200px;
+      }
     }
   }
 </style>
