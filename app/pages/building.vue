@@ -20,6 +20,7 @@
       </div>
       <BuildingServices class="building__services" />
       <BuildingAbout class="building__about" />
+      <BuildingProcess class="building__process" />
     </div>
   </main>
 </template>
@@ -63,6 +64,14 @@
 
       @include lg {
         margin-bottom: 150px;
+      }
+    }
+
+    &__process {
+      margin-bottom: 100px;
+
+      @include lg {
+        margin-bottom: 200px;
       }
     }
   }
