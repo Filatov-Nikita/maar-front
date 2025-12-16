@@ -22,6 +22,7 @@
       <BuildingAbout class="building__about" />
       <BuildingProcess class="building__process" />
       <BuildingControl class="building__control" />
+      <BuildingQuestions />
     </div>
   </main>
 </template>
@@ -70,6 +71,14 @@
 
     &__process {
       margin-bottom: 100px;
+
+      @include lg {
+        margin-bottom: 200px;
+      }
+    }
+
+    &__control {
+      margin-bottom: 80px;
 
       @include lg {
         margin-bottom: 200px;
