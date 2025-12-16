@@ -42,7 +42,7 @@
             </div>
             <div class="menu__col2">
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">Строительство</NuxtLink>
+                <NuxtLink class="menu-link" :to="{ name: 'building' }">Строительство</NuxtLink>
               </div>
               <div class="menu__link-wrap">
                 <NuxtLink class="menu-link" to="/">Дизайн интерьера</NuxtLink>
