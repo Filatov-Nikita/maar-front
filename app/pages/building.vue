@@ -21,6 +21,7 @@
       <BuildingServices class="building__services" />
       <BuildingAbout class="building__about" />
       <BuildingProcess class="building__process" />
+      <BuildingMaterials class="building__materials" />
       <BuildingControl class="building__control" />
       <BuildingQuestions />
     </div>
@@ -79,6 +80,14 @@
 
     &__control {
       margin-bottom: 80px;
+
+      @include lg {
+        margin-bottom: 200px;
+      }
+    }
+    &__materials {
+
+      margin-bottom: 70px;
 
       @include lg {
         margin-bottom: 200px;
