@@ -118,33 +118,17 @@
     }
 
     &__caption {
+      display: inline-block;
       font-size: 14px;
       font-weight: 500;
       letter-spacing: -0.02em;
 
       @include lg {
-        display: inline-block;
         font-size: 17px;
       }
 
-      &-3 {
-        @include lg {
-          transform: translateX(-10px);
-        }
-
-        @include xl {
-          transform: translateX(-15px);
-        }
-      }
-
-      &-4 {
-        @include lg {
-          transform: translateX(-20px);
-        }
-
-        @include xl {
-          transform: translateX(-30px);
-        }
+      &-3, &-4 {
+        transform: translateX(-50%);
       }
     }
   }
