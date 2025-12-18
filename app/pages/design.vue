@@ -21,6 +21,7 @@
         />
       </div>
       <DesignAdvantages class="design__advantages" />
+      <DesignBrands class="design__brands" />
       <DesignPlitka class="design__plitka" />
       <DesignAboutDir class="design__dir"  />
       <DesignColors class="design__colors" />
@@ -84,6 +85,14 @@
 
       @include lg {
         margin-bottom: 140px;
+      }
+    }
+
+    &__brands {
+      margin-bottom: 80px;
+
+      @include lg {
+        margin-bottom: 150px;
       }
     }
   }
