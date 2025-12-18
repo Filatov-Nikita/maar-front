@@ -45,7 +45,7 @@
                 <NuxtLink class="menu-link" :to="{ name: 'building' }">Строительство</NuxtLink>
               </div>
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">Дизайн интерьера</NuxtLink>
+                <NuxtLink class="menu-link" :to="{ name: 'design' }">Дизайн интерьера</NuxtLink>
               </div>
               <div class="menu__link-wrap">
                 <NuxtLink class="menu-link" to="/">Участки</NuxtLink>

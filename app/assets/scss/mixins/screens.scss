@@ -1,6 +1,7 @@
 $xl: 1200px;
 $lg: 1000px;
 $md: 700px;
+$sm: 360px;
 
 @mixin screen($size) {
   @media screen and (min-width: $size) {
@@ -26,9 +27,21 @@ $md: 700px;
   }
 }
 
+@mixin sm() {
+  @include screen($sm) {
+    @content;
+  }
+}
+
 @mixin gap($x: 0, $y: 0) {
   --col-x: #{$x};
   --col-y: #{$y};
+}
+
+@mixin gap-sm($x: 0, $y: 0) {
+  @include sm {
+    @include gap($x, $y);
+  }
 }
 
 @mixin gap-md($x: 0, $y: 0) {
@@ -51,6 +64,12 @@ $md: 700px;
 
 @mixin size($n) {
   --col-size: #{$n};
+}
+
+@mixin size-sm($n) {
+  @include sm {
+    @include size($n);
+  }
 }
 
 @mixin size-md($n) {
