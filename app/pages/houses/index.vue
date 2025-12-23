@@ -2,8 +2,8 @@
   <main class="page-py">
     <div class="wrapper">
       <BaseBreadcrumbs class="bread-mb" />
-      <HousesList class="processing-list" title="Готовые" />
-      <HousesList title="Строящиеся" />
+      <HousesList class="processing-list" type="4" />
+      <HousesList type="5" />
     </div>
   </main>
 </template>

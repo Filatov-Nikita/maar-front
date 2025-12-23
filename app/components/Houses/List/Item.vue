@@ -1,33 +1,35 @@
 <template>
-  <NuxtLink class="item" to="/">
+  <NuxtLink class="item" :to="{ name: 'houses-code', params: { code: item.code } }">
     <div class="img-wrap">
-      <img class="w-full" :width="photo.width" :height="photo.height" :src="photo.url" loading="lazy" :alt="name" />
+      <BaseServerImage
+        class="w-full"
+        :image="photo"
+        :alt="item.name"
+        loading="lazy"
+      />
     </div>
-    <div class="name">{{ name }}</div>
-    <div class="date">{{ date }}</div>
+    <div class="name">{{ item.name }}</div>
+    <div class="location">{{ item.location }}</div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-  defineProps<{
-    photo: {
-      width: number,
-      height: number,
-      url: string,
-    },
-    name: string,
-    date: string,
+  import type { HouseItem } from '@/repositories/houses';
+
+  const props = defineProps<{
+    item: HouseItem,
   }>();
+
+  const photo = computed(() => {
+    if(props.item.photo.length <= 0) return null;
+    return props.item.photo[0] ?? null;
+  });
 </script>
 
 <style scoped lang="scss">
   .item {
     padding-bottom: 16px;
     border-bottom: 1px solid var(--color-black-1-2);
-
-    &:hover {
-      opacity: 0.7;
-    }
   }
 
   .img-wrap {
@@ -41,7 +43,7 @@
     margin-bottom: 8px;
   }
 
-  .date {
+  .location {
     font-size: 14px;
     line-height: 1.3;
     letter-spacing: -0.02em;

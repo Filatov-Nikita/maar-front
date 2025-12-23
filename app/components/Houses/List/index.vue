@@ -1,51 +1,33 @@
 <template>
   <div class="houses">
     <BaseHeaderSec class="title" tag="p" :size="grid.lg ? 'xl' : 'lg'" design="primary">
-      {{ title }}
+      {{ type === '4' ? 'Готовые' : 'Строящиеся' }}
     </BaseHeaderSec>
     <div class="items">
       <HousesListItem
+        v-for="item in items"
+        :key="item.id"
         class="items__item"
-        name="Майами"
-        date="Июн. 2026"
-        :photo="{
-          width: 918,
-          height: 512,
-          url: houseImage,
-        }"
-      />
-      <HousesListItem
-        class="items__item"
-        name="Майами"
-        date="Июн. 2026"
-        :photo="{
-          width: 918,
-          height: 512,
-          url: houseImage,
-        }"
-      />
-      <HousesListItem
-        class="items__item"
-        name="Майами"
-        date="Июн. 2026"
-        :photo="{
-          width: 918,
-          height: 512,
-          url: houseImage,
-        }"
+        :item="item"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import houseImage from '@/assets/images/temp/house.jpg';
+  import type { AllParams } from '@/repositories/houses';
 
-  defineProps<{
-    title: string,
+  const props = defineProps<{
+    type: Exclude<AllParams['type'], undefined>,
   }>();
 
   const grid = useAppGrid();
+
+  const api = useNuxtApp().$api;
+
+  const key = computed(() => `list-type-${props.type}`);
+  const res = await useAsyncData(key, () => api.houses.all({ type: props.type }));
+  const items = useDataOrFail(res);
 </script>
 
 <style scoped lang="scss">
