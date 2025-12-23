@@ -52,6 +52,10 @@ export const useBreadcrumbsStore = defineStore('breadcrumbsStore', () => {
     items.value = paths;
   }
 
+  function appendPath(path: PathItem) {
+    items.value.push(path);
+  }
+
   function setPathsNames(...args: Array<keyof typeof paths>) {
     items.value = [];
     args.forEach(arg => {
@@ -65,5 +69,6 @@ export const useBreadcrumbsStore = defineStore('breadcrumbsStore', () => {
     items,
     setPaths,
     setPathsNames,
+    appendPath,
   }
 });
