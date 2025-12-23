@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
+      apiBase: '',
+      filesBase: '',
       yandexMaps: {
         apikey: ''
       }
