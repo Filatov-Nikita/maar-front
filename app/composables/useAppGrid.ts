@@ -1,4 +1,8 @@
-import { useGrid } from 'vue-screen';
+import { useGrid, useScreen } from 'vue-screen';
+
+export function useAppScreen() {
+  return useScreen();
+}
 
 export function useAppGrid() {
   const { $thresholds, $ssrViewport } = useNuxtApp();

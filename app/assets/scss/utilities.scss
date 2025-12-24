@@ -20,6 +20,19 @@
   }
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.relative {
+  position: relative;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
 .anim-delay-1s {
   animation-delay: 1s;
 }
