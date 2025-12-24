@@ -1,5 +1,5 @@
 <template>
-  <img v-if="image" :width="image.width" :height="image.height" :src="fullPath" />
+  <img v-if="image" :width="size.width" :height="size.height" :src="fullPath" />
   <img v-else :width="imageFallback.width" :height="imageFallback.height" :src="imageFallback.src" />
 </template>
 
@@ -7,7 +7,9 @@
   import type { ImageItem } from '@/types/shared';
 
   const props = defineProps<{
-    image: ImageItem | null,
+    image: ImageItem | string | null,
+    width?: number,
+    height?: number,
     fallback?: {
       width: number,
       height: number,
@@ -19,8 +21,9 @@
 
   const fullPath = computed(() => {
     if(!props.image) return '';
-    if(props.image.src.match(/^https?/) !== null) return props.image.src;
-    return config.filesBase + props.image.src;
+    const src = typeof props.image === 'string' ? props.image : props.image.src;
+    if(src.match(/^https?/) !== null) return src;
+    return config.filesBase + src;
   });
 
   const imageFallback = computed(() => {
@@ -30,5 +33,12 @@
       height: '720',
       src: '/images/no-photo.jpg',
     }
+  });
+
+  const size = computed(() => {
+    if(typeof props.image === 'string') {
+      return { width: props.width, height: props.height };
+    }
+    return { width: props.image?.width, height: props.image?.height };
   });
 </script>
