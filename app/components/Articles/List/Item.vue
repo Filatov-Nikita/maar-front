@@ -1,31 +1,36 @@
 <template>
-  <NuxtLink class="item" to="/">
-    <div v-if="photo" class="img-wrap">
-      <img class="img" :width="photo.width" :height="photo.height" :src="photo.url" :alt="title" loading="lazy">
+  <NuxtLink class="item" :to="{ name: 'articles-code', params: { code: item.code } }">
+    <div v-show="!hidePhoto" class="img-wrap">
+      <BaseServerImage
+        class="img"
+        :image="item.img"
+        :alt="item.name"
+        loading="lazy"
+      />
     </div>
-    <div class="title">{{ title }}</div>
+    <div class="title">{{ item.name }}</div>
     <div class="text-wrap">
-      <span>{{ categoryName }}</span>
+      <span>{{ item.rubr }}</span>
       <span>·</span>
-      <span>{{ authorName }}</span>
+      <span>{{ item.author }}</span>
       <span>·</span>
-      <span>{{ createdAt }}</span>
+      <span>{{ item.date }}</span>
     </div>
   </NuxtLink>
 </template>
 
 <script setup lang="ts">
-  defineProps<{
-    photo?: {
-      width: number,
-      height: number,
-      url: string,
+  import type { ArticleItem } from '@/repositories/articles';
+
+  withDefaults(
+    defineProps<{
+      item: ArticleItem,
+      hidePhoto?: boolean,
+    }>(),
+    {
+      hidePhoto: false,
     },
-    title: string,
-    categoryName: string,
-    authorName: string,
-    createdAt: string,
-  }>();
+  );
 </script>
 
 <style scoped lang="scss">
@@ -34,8 +39,12 @@
     border-bottom: 1px solid var(--color-black-1-2);
 
     &:hover {
-      .title, .img-wrap {
-        opacity: 0.5;
+      .title {
+        opacity: 0.7;
+      }
+
+      .img {
+        transform: scale(1.1);
       }
     }
   }
@@ -43,7 +52,7 @@
   .text-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     font-size: 14px;
     line-height: 1.3;
     letter-spacing: 0.01em;
@@ -58,10 +67,12 @@
   }
 
   .img-wrap {
+    overflow: hidden;
     margin-bottom: 16px;
   }
 
   .img {
+    transition: transform 150ms;
     width: 100%;
   }
 </style>
