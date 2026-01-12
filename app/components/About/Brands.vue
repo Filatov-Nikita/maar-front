@@ -5,7 +5,7 @@
     </h2>
     <div class="items">
       <Transition
-        v-for="rows in colsList"
+        v-for="rows in colslist"
         appear
         name="anim"
       >
@@ -13,17 +13,22 @@
       </Transition>
     </div>
     <div class="btn-wrap" v-if="!grid.lg && canShow">
-      <ListsBrandsButtonShow @click="showMore" />
+      <BaseBtnShowMore class="w-full" @click="showMore" />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-  import useListBrands from '@/components/Lists/Brands/model/useListBrands';
+  import { items } from '@/components/Lists/Brands/model/data';
 
   const grid = useAppGrid();
 
-  const { canShow, colsList, showMore } = useListBrands();
+  const { canShow, itemsList, showMore } = usePugLocal(shallowRef(items), 1);
+
+  const colslist = computed(() => {
+    if(grid.value.lg) return items;
+    return itemsList.value;
+  });
 </script>
 
 <style scoped lang="scss">

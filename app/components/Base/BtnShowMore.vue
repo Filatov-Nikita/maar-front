@@ -13,7 +13,6 @@
 
 <style scoped lang="scss">
   .btn {
-    width: 100%;
     padding: 8px 0;
     text-align: left;
     display: flex;
