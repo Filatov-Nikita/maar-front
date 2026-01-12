@@ -30,14 +30,14 @@ export interface ArticleItem {
 
 export interface ArticleOne {
   name:           string;
-  text1:          string;
-  text2:          string;
+  text1:          string | null;
+  text2:          string | null;
   detail_text:    string;
   date:           string;
   rubr:           string;
   author:         string;
-  author_subtext: string;
-  author_img:     ImageItem;
+  author_subtext: string | null;
+  author_img:     ImageItem | false;
   code:           string;
   seo_title:      string;
   seo_descr:      string;

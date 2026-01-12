@@ -1,7 +1,7 @@
 <template>
   <div class="profile">
     <div class="photo-wrap">
-      <img class="photo" width="118" height="118" :src="photoUrl" :alt="name" loading="lazy" />
+      <img class="photo" width="118" height="118" :src="url" :alt="name" loading="lazy" />
     </div>
     <div class="text-body">
       <p class="name">{{ name }}</p>
@@ -11,11 +11,27 @@
 </template>
 
 <script setup lang="ts">
-  defineProps<{
-    name: string,
-    position: string,
-    photoUrl: string,
-  }>();
+  const props = withDefaults(
+    defineProps<{
+      name: string,
+      position: string,
+      photoUrl?: string | null,
+      server?: boolean,
+      fallback?: string,
+    }>(),
+    {
+      server: false,
+      fallback: '/images/no-photo-sq.jpg',
+    }
+  );
+
+  const config = useRuntimeConfig().public;
+
+  const url = computed(() => {
+    if(!props.photoUrl) return props.fallback;
+    else if(props.server) return config.filesBase + props.photoUrl;
+    return props.photoUrl;
+  });
 </script>
 
 <style scoped lang="scss">
