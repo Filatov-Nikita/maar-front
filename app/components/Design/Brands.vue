@@ -37,7 +37,7 @@
       <div class="items-wrap" v-else>
         <div class="items">
           <Transition
-            v-for="rows in colsList"
+            v-for="rows in itemsList"
             appear
             name="anim"
           >
@@ -45,7 +45,7 @@
           </Transition>
         </div>
         <div class="btn-wrap" v-if="!grid.lg && canShow">
-          <ListsBrandsButtonShow @click="showMore" />
+          <BaseBtnShowMore class="w-full" @click="showMore" />
         </div>
       </div>
     </div>
@@ -56,11 +56,10 @@
   import img from '@/assets/images/design/complekt.jpg';
   import imgXl from '@/assets/images/design/complekt-xl.jpg';
   import { items } from '@/components/Lists/Brands/model/data';
-  import useListBrands from '@/components/Lists/Brands/model/useListBrands';
 
   const grid = useAppGrid();
 
-  const { canShow, colsList, showMore } = useListBrands();
+  const { canShow, itemsList, showMore } = usePugLocal(shallowRef(items), 1);
 
   const col1 = computed(() => items[0] ?? []);
   const cols = computed(() => items.slice(1));
