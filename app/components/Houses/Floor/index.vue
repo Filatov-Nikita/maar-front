@@ -16,7 +16,12 @@
         </div>
       </div>
       <div ref="col3Ref" class="col3">
-        <HousesFloorGallery class="floor-gal" :images="gallery" />
+        <GalleryMini
+          class="floor-gal"
+          :images="gallery"
+          title="Фотографии интерьера"
+          titleLg="Фотографии<br>интерьера"
+        />
       </div>
     </div>
   </section>

@@ -1,10 +1,8 @@
 <template>
   <div>
-    <p class="title" v-if="grid.lg">
-      Фотографии<br/>интерьера
-    </p>
+    <p class="title" v-if="grid.lg" v-html="titleLg"></p>
     <BaseHeaderSec v-else class="title" tag="p" :size="grid.md ? 'md' : 'sm'" design="secondary">
-      Фотографии интерьера
+      {{ title }}
     </BaseHeaderSec>
     <div class="slider-wrap">
       <Swiper
@@ -25,7 +23,7 @@
         </SwiperSlide>
       </Swiper>
     </div>
-    <HousesFloorGalleryModal
+    <GalleryMiniModal
       v-model:showed="showedModal"
       :images="images"
       :initialSlide="activeIndex"
@@ -39,6 +37,8 @@
 
   defineProps<{
     images: ImageItem[],
+    titleLg: string,
+    title: string,
   }>();
 
   const grid = useAppGrid();
