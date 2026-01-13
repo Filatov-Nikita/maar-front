@@ -6,6 +6,16 @@
       <GalleryPrimary class="house-one__gallery" :images="house.galery" />
       <HousesShowAbout class="house-one__about" :house="house" />
       <HousesShowPlan class="house-one__plan" :house="house" />
+      <BlockLocation
+        class="house-one__location"
+        :text-bold="house.rasp_textbold"
+        :text-light="house.rasp_textlights"
+        :photo="house.rasp_photo"
+        :houses-cnt="house.rasp_ploshad"
+        :area-square="house.rasp_ploshad"
+        :places="house.rasp_infrostr"
+        :gallery="house.raspgalery"
+      />
       <HousesListShort />
     </div>
   </main>
@@ -46,6 +56,14 @@
 
     &__plan {
       margin-bottom: 100px;
+    }
+
+    &__location {
+      margin-bottom: 90px;
+
+      @include lg {
+        margin-bottom: 150px;
+      }
     }
   }
 
