@@ -11,7 +11,7 @@
           <BaseServerImage class="w-full" :image="photo" loading="lazy" />
         </div>
       </div>
-      <div class="gal-wrap">
+      <div class="gal-wrap" v-if="gallery">
         <GalleryMini
           class="loc-gal"
           title="Фотографии посёлка"
@@ -64,7 +64,7 @@
     housesCnt: string,
     areaSquare: string,
     places: string[],
-    gallery: ImageItem[],
+    gallery?: ImageItem[],
   }>();
 
   const grid = useAppGrid();

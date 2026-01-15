@@ -28,6 +28,10 @@ export const useBreadcrumbsStore = defineStore('breadcrumbsStore', () => {
       name: 'Объекты',
       to: { name: 'houses' },
     },
+    'areas': {
+      name: 'Участки',
+      to: { name: 'areas' },
+    },
     'about': {
       name: 'Компания',
       to: { name: 'about' },
