@@ -30,7 +30,7 @@
 
   .item {
     padding: 4px 0;
-    font-size: 400;
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: -0.03em;

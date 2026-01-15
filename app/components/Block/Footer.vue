@@ -56,7 +56,7 @@
             </div>
             <div class="menu__col3">
               <div class="menu__link-wrap">
-                <NuxtLink class="menu-link" to="/">
+                <NuxtLink class="menu-link" :to="{ name: 'vacancies' }">
                   <span>Вакансии</span>
                   <span class="menu-link__icon">
                     <BaseIcon name="external" fit />
