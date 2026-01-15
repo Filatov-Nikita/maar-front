@@ -28,7 +28,7 @@
   const api = useNuxtApp().$api;
   const route = useRoute();
   const code = computed(() => route.params.code as string);
-  const res = await useAsyncData(code, () => api.houses.show(code.value));
+  const res = await useAsyncData(`houses-${code.value}`, () => api.houses.show(code.value));
   const data = useDataOrFail(res);
   const house = computed(() => data.value[0]);
 

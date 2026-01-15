@@ -25,7 +25,7 @@
   const code = computed(() => route.params.code as string);
 
   const data = useDataOrFail(
-    await useAsyncData(() => api.areas.show(code.value)),
+    await useAsyncData(`areas-${code.value}`, () => api.areas.show(code.value)),
   );
   const area = computed(() => data.value[0]);
 

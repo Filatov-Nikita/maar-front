@@ -37,8 +37,10 @@
   const grid = useAppGrid();
 
   const api = useNuxtApp().$api;
+  const key = computed(() => `areas-similar-${props.currentId}`);
   const items = useDataOrFail(
     await useAsyncData(
+      key,
       () => api.areas.all({ cnt: 3, hideid: props.currentId }),
     ),
   );
