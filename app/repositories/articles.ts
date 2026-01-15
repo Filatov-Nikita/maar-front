@@ -16,6 +16,7 @@ export default function(appFetch: typeof $fetch) {
 export type AllParams = Partial<{
   type: '6' | '7' | '8',
   cnt: number,
+  hideid: string,
 }>;
 
 
@@ -29,6 +30,7 @@ export interface ArticleItem {
 }
 
 export interface ArticleOne {
+  id:             string,
   name:           string;
   text1:          string | null;
   text2:          string | null;
