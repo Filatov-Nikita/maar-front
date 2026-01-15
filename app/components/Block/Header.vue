@@ -43,7 +43,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    background: var(--color-app-bg);
   }
 
   .logo-link {
